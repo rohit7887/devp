@@ -1,0 +1,17 @@
+---
+
+
+
+version: '2' 
+
+
+
+services: 
+
+  hello:
+
+    build: . 
+
+    ports:
+
+      - '30099:8080'
