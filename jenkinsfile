@@ -2,7 +2,7 @@ node {
     // some block
 
  stage('Git ChechOut') {
-  git branch: 'main', url: 'https://github.com/rohit7887/devp.git' 
+  git branch: 'master', url: 'https://github.com/rohit7887/devp.git' 
  }
  
 
