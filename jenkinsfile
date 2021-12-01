@@ -2,10 +2,9 @@ node {
     // some block
 
  stage('Git ChechOut') {
-  git branch: 'main', url: 'https://github.com/amitvashisttech/devops-mindtree-25-Nov-2021.git' 
+  git branch: 'main', url: 'https://github.com/rohit7887/devp.git' 
  }
  
- dir('03-App-Code/petclinic-code/') {
 
  stage('Maven Clean') {
   sh 'mvn clean'
@@ -26,5 +25,9 @@ node {
  stage('Archive Artifact') {
   archiveArtifacts artifacts: 'target/petclinic.war', followSymlinks: false
  }
+ 
+  stage('Run APP') {
+  sh 'mvn jetty:run -Djetty.http.port=9080'
  }
-}
+ }
+
