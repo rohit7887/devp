@@ -1,0 +1,46 @@
+node 
+{
+    // some block
+
+    stage('Git ChechOut') {
+    git branch: 'master', url: 'https://github.com/rohit7887/devp.git' 
+    }
+ 
+
+    stage('Maven Clean') {
+    sh 'mvn clean'
+    }
+
+    stage('Maven Compile') {
+    sh 'mvn compile'
+    }
+ 
+    stage('Maven Test') {
+        sh 'mvn test'
+    }
+
+    stage('Maven Package') {
+    sh 'mvn package'
+    }
+
+    stage('Archive Artifact') {
+    archiveArtifacts artifacts: 'target/VaadinExample-1.0.war', followSymlinks: false
+    }
+
+
+    stage('Docker Deployment') {
+    sh 'docker-compose up -d --build'
+    }
+
+    stage('Send email') 
+    {
+        def mailRecipients = "rrcasper3@gmail.com"
+        def jobName = currentBuild.fullDisplayName
+    
+        emailext body: '''${SCRIPT, template="groovy-html.template"}''',
+            mimeType: 'text/html',
+            subject: "[Jenkins] ${jobName}",
+            to: "${mailRecipients}",
+    
+    }
+}
