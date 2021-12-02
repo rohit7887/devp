@@ -31,16 +31,5 @@ node
     stage('Docker Deployment') {
     sh 'docker-compose up -d --build'
     }
-
-    stage('Send email') 
-    {
-        def mailRecipients = "rrcasper3@gmail.com"
-        def jobName = currentBuild.fullDisplayName
-    
-        emailext body: '''${SCRIPT, template="groovy-html.template"}''',
-            mimeType: 'text/html',
-            subject: "[Jenkins] ${jobName}",
-            to: "${mailRecipients}",
-    
     
 }
