@@ -40,7 +40,7 @@ pipeline {
     stages {
         stage('Sending mail') {
             steps {
-               emailext attachLog: true, body: 'Jenkins build details', subject: 'Jenkins job details', to: 'rrcasper3@gmail.com'
+               emailext attachLog: true, body: 'Jenkins build details', subject: 'Jenkins job details', to: 'xxxxx@gmail.com.com'
             }
         }
     }
