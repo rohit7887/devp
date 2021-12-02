@@ -42,5 +42,5 @@ node
             subject: "[Jenkins] ${jobName}",
             to: "${mailRecipients}",
     
-    }
+    
 }
