@@ -38,15 +38,11 @@ pipeline {
     agent any
      
     stages {
-        stage('Ok') {
+        stage('Sending mail') {
             steps {
-                echo "Ok"
+               emailext attachLog: true, body: 'Jenkins build details', subject: 'Jenkins job details', to: 'rrcasper3@gmail.com'
             }
         }
     }
-    post {
-        always {
-            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
-        }
-    }
 }
+  
