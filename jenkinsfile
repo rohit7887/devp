@@ -1,31 +1,35 @@
 node {
-  
- stage('Git ChechOut') {
-  git branch: 'master', url: 'https://github.com/rohit7887/devp.git' 
- }
- 
+	stage('Git ChechOut') {
+	git branch: 'master', url: 'https://github.com/rohit7887/devp.git'
+	}
+	stage('Maven Clean') {
+	sh 'mvn clean'
+	}
+	stage('Maven Compile') {
+	sh 'mvn compile'
+	}
+	stage('Maven Test') {
+	sh 'mvn test'
+	}
+	stage('Maven Package') {
+	sh 'mvn package'
+	}
+	stage('Archive Artifact') {
+	archiveArtifacts artifacts: 'target/VaadinExample-1.0.war', followSymlinks: false
+	}
+	stage('Docker Deployment') {
+	sh 'docker-compose up -d --build'
+	}
+}
 
- stage('Maven Clean') {
-  sh 'mvn clean'
- }
-
- stage('Maven Compile') {
-  sh 'mvn compile'
- }
- 
- stage('Maven Test') {
-    sh 'mvn test'
- }
-
- stage('Maven Package') {
-  sh 'mvn package'
- }
-
- stage('Archive Artifact') {
-  archiveArtifacts artifacts: 'target/petclinic.war', followSymlinks: false
- }
- 
-  stage('Run APP') {
-  sh 'mvn jetty:run -Djetty.http.port=9080'
- }
+pipeline {
+    agent any
+     
+    stages {
+        stage('Sending mail') {
+            steps {
+               emailext attachLog: true, body: 'Jenkins build ', subject: 'Test Jenkins', to: 'rrcasper3@gmail.com'
+            }
+        }
+    }
 }
