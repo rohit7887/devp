@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "terraform-demo-mt-key-pair"
+  default = "rohit"
 }
 
 variable "pvt_key_name" {
@@ -8,5 +8,5 @@ variable "pvt_key_name" {
 
 
 variable "sg_id" {
-  default = "sg-066a3fa7da661d24e"
+  default = "sg-0da0fa305539e9242"
 }
