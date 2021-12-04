@@ -33,7 +33,7 @@ node
     
     
 }
-pipeline {
+eline {
     agent any
      
     stages {
