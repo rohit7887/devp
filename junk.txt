@@ -7,7 +7,6 @@ node
  
 
     stage('Maven Clean') {
-    sh 'mvn clean'
     }
 
     stage('Maven Compile') {
