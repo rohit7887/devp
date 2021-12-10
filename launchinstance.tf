@@ -9,6 +9,7 @@ resource "aws_instance" "web" {
   instance_type     = "t2.micro"
   key_name          = var.key_name
   vpc_security_group_ids = [var.sg_id]
+  vpc_id =  "vpc-00f44419124396b46"
   tags = {
     Name = "Launched-via-Terraform"
   }
