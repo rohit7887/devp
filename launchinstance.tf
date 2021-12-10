@@ -5,7 +5,7 @@ provider "aws" {
 
 
 resource "aws_instance" "web" {
-  ami               = var.ami_id
+  ami           = "ami-0dd0ccab7e2801812"
   instance_type     = "t2.micro"
   key_name          = var.key_name
   vpc_security_group_ids = [var.sg_id]
