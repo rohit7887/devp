@@ -1,6 +1,6 @@
 # Run Time Tomcat Env Image.
 
-FROM tomcat:9.0
+FROM tomcat:8.0
 
 
 
