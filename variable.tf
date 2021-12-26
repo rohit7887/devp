@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "rohit"
+  default = "tt"
 }
 
 variable "pvt_key_name" {
@@ -8,5 +8,5 @@ variable "pvt_key_name" {
 
 
 variable "sg_id" {
-  default = "sg-0efa0ee61d7ceb0b4"
+  default = "sg-052b42cd43452959a"
 }
