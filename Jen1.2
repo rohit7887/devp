@@ -25,7 +25,7 @@ node
 	 stage('Archive Artifact') {
 	  archiveArtifacts artifacts: 'target/petclinic.war', followSymlinks: false
 	 stage('Sending mail') {
-		notify(''Success)
+		notify('Success')
 	 }
 	 }
 	}
